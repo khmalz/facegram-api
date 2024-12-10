@@ -18,7 +18,7 @@ Route::group(["prefix" => "v1/auth"], function () {
         ->middleware('guest')
         ->name('login');
 
-    // Route::post('/logout', [AuthenticatedSessionController::class, 'destroy'])
-    //     ->middleware('auth')
-    //     ->name('logout');
+    Route::post('/logout', [AuthenticatedSessionController::class, 'destroy'])
+        ->middleware('auth:sanctum')
+        ->name('logout');
 });

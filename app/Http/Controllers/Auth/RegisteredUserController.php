@@ -21,7 +21,6 @@ class RegisteredUserController extends Controller
 
         $token = $user->createToken('auth_token')->plainTextToken;
 
-        Auth::login($user);
         return (new UserResource($user))
             ->additional([
                 'message' => 'Register success',
